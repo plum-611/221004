@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>4주차 과제</title>
+	<style type="text/css">
+		@font-face {
+		    font-family: 'NeoDunggeunmo';
+		    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+		    font-weight: normal;
+		    font-style: normal;
+		}
+
+		body{margin: 0; background-color: AliceBlue;}
+		#gasaText{z-index: 9; position: absolute; left: 1000px; top: 270px; font-size: 20px;}
+		.word { opacity: 0; animation: fadein 2s forwards;}
+		@keyframes fadein{
+			to{opacity: 1;}
+
+
+	</style>
+</head>
+<body >
+
+	<header style="height: 200px;">
+		<div style="text-align: center;">
+			<img src="logo.png" style="height: 200px;">
+		</div>
+	</header>
+
+	
+	<section name="가사">
+		
+			<div id="gasaText" style="font-family: 'NeoDunggeunmo';">
+			</div>
+		
+	</section>
+
+
+	<section name="디지바이스">
+		<p style="position:absolute; left: 750px; top: 350px;">↓PLAY MAUSIC↓</p>
+		<div style="position: absolute; left: 700px; top: 400px;"> 
+			<img src="vice1.png"onclick="play()" style="width: 200px;"> 
+		</div>
+
+	<audio id="audio" src="ost.mp3"></audio>
+	</section>
+
+	<section name="태일아" style="position:absolute; left: 80px;">
+		<img src="friend.png" style="height:600px;">
+	</section>
+
+
+
+
+	<footer name="달려가는거">
+		<div style="text-align: center; position: fixed; right: -10px; bottom: -10px;">
+			<img src="guys.png" style="height: 500px; opacity: 50%;">
+		</div>
+	</footer>
+
+
+
+
+
+	<script type="text/javascript">
+
+		var gasa = "그래 그리 쉽지는 않겠지 <br> 나를 허락해 줄 세상이란 <br> 손쉽게 다가오는 <br> 편하고도 감미로운 공간이 아냐 <br> 그래도 날아오를 거야 <br> 작은 날갯짓에 꿈을 담아 <br> 조금만 기다려 봐 Oh my~ <br><br> 나비처럼 날아가볼까 <br> 일렁거리는 바람에 실려 <br>이런 느낌을 언제나 느낄 수 있을까 <br> 마음 속을 좁혀오는 사소한 일은 신경 쓰지 마<br> 지금 이대로 날아가 모두 잊으면 돼 <br><br> 어떻게 wow wow wow wow wow <br> 하늘 끝까지 닿을 수 있을까 <br> 이렇게 wow wow wow wow wow <br> 여린 날개가 힘을 낼 수 있을까 <br><br> 그래 그리 쉽지는 않겠지 <br> 나를 허락해 줄 세상이란 <br> 손쉽게 다가오는 편하고도 감미로운 공간이 아냐 <br> 그래도 날아오를 거야 <br> 작은 날갯짓에 꿈을 담아 <br> 조금만 기다려 봐 <br> Oh my love  <br><br> "
+		var gasaA = gasa.split (" ");
+
+		function aaa(){
+			var myTimer = setInterval(print,500);
+		}
+		var s = 0 ;
+
+		function print(){
+			var p = document.createElement("span");
+			p.innerHTML = gasaA[s] + " ";
+			p.className = "word";
+			s++;
+			gasaText.appendChild(p);
+
+			if (s == gasaA.length){
+				clearInterval(myTimer);
+			}
+		}
+
+
+		function play(){
+			var audio = document.getElementById("audio");
+			audio.play();
+			aaa();
+		}
+
+
+
+
+
+
+	</script>
+
+</body>
+</html>
